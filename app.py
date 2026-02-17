@@ -13,11 +13,11 @@ if uploaded_file is not None:
     # Load the pre-trained face detector
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray, 1.1, 4)
+    faces = face_cascade.detectMultiScale(gray, 1.1, 10)
 
     # Draw the RED bold rectangular frame
     for (x, y, w, h) in faces:
-        cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 5)
+        cv2.rectangle(image, (x, y), (x+w, y+h), (0, 0, 255), 10)
 
     # Show result
     st.image(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), caption='Detected Faces', use_column_width=True)
